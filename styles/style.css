@@ -20,3 +20,232 @@ li,
 figure {
   margin: 0;
 }
+
+:root {
+  --bg-color: #F3EFEC;
+  --text-color: #312A4E;
+  --accent-color: #FFAB6B;
+  --main-font: Raleway, sans-serif;
+  --accent-font: 'STIX Two Text', serif;
+}
+
+.page {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--main-font);
+}
+
+.heading {
+  font-family: var(--accent-font);
+  font-weight: 600;
+  line-height: .9;
+  text-align: center;
+}
+
+.header__title {
+  padding-inline: 5vi;
+  font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
+  padding-block: 10vi 40px;
+}
+
+.content-section {
+  padding-inline: 5vi;
+}
+
+.content__title {
+  font-size: 30px;
+  padding-block: 6.5vi 2vi;
+}
+
+.content__text-block {
+  font-size: 18px;
+}
+
+.content__text-block .content__paragraph:not(:last-child) {
+  padding-block-end: 1.5em;
+}
+
+.content__link {
+  color: inherit;
+}
+
+.content__blockquote {
+  inline-size: 75%;
+  margin: 0 auto;
+  line-height: 2;
+  font-style: italic;
+}
+
+.content__list {
+  list-style-type: none;
+  /* padding-block-end: 10vi; */
+  padding-inline-start: 40px;
+}
+
+.content__list-item {
+  position: relative;
+  font-size: 18px;
+}
+
+.content__list .content__list-item:not(:last-child) {
+  padding-block-end: 12px;
+}
+
+.content__list-item::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 2px;
+  inline-size: 15px;
+  block-size: 15px;
+  background-image: url(../images/marker-light.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content__text-block_type_first-lettered .content__paragraph:first-child:first-letter {
+  background-color: var(--accent-color);
+  display: inline-block;
+  padding: 0px 4px;
+  margin-inline-end: 4px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.content__figure {
+  margin-block: 7%;
+  inline-size: 100%;
+  width: calc(100% + 10vi);
+  position: relative;
+  left: -5vi;
+}
+
+.content__picture {
+  inline-size: 100%;
+}
+
+.content__picture-caption {
+  text-align: center;
+  padding-block: 20px;
+  border-bottom: 1px solid currentColor;
+  font-size: 18px;
+}
+
+.content__card {
+  margin-block-start: 7%;
+  aspect-ratio: 4/3;
+  border: 1px solid currentColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content__card-title {
+  font-size: 60px;
+  line-height: .9;
+}
+
+.content__card-subtitle {
+  font-size: 18px;
+}
+
+.colored-text {
+  position: relative;
+}
+
+.colored-text::after {
+  position: absolute;
+  background-color: var(--accent-color);
+  content: "";
+  inset-inline: -4px;
+  bottom: 10px;
+  height: .3em;
+  z-index: -1;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-block: 20px;
+  align-items: center;
+}
+
+.header__theme-toggler {
+  display: flex;
+  gap: 4px;
+  list-style-type: none;
+}
+
+.header__theme-button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1.04;
+  color: currentColor;
+  background-color: transparent;
+  border: none;
+}
+
+.header__theme-button:hover {
+  text-decoration: underline;
+}
+
+.header__theme-button_is-active {
+  font-weight: 600;
+  position: relative;
+}
+
+.header__theme-button_is-active::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  inset-inline: -2px;
+  bottom: 4px;
+  height: .4em;
+  z-index: -1;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: none;
+  padding: 2px;
+  border: 1px solid currentColor;
+}
+
+.header__theme-button:disabled {
+  pointer-events: none;
+}
+
+.footer {
+  margin-block-start: 10%;
+  border-top: 1px solid currentColor;
+}
+
+.footer__copyright {
+  padding: 2.5%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.theme_dark {
+  --bg-color: #171717;
+  --text-color: #B3B3B3;
+  --accent-color: transparent;
+}
+
+.theme_dark .header__theme-button_is-active::after {
+  background-image: url(../images/pattern.svg);
+  background-repeat: repeat-x;
+  bottom: -1px;
+  height: .6em;
+}
+
+.theme_dark .content__text-block_type_first-lettered .content__paragraph:first-child:first-letter {
+  border: 1px solid currentColor;
+}
+
+.theme_dark .content__list-item::before {
+  background-image: url(../images/marker-dark.svg);
+}
